@@ -50,14 +50,14 @@ resource "tfe_variable_set" "variables" {
 
 resource "tfe_variable" "tfe_team_token" {
   key             = "tfe_team_token"
-  value           = var.terraform_organization
+  value           = tfe_team_token.team_token.token
   category        = "terraform"
   description     = "The organization team api token"
   variable_set_id = tfe_variable_set.variables.id
 }
 
 resource "tfe_variable" "organization_variables" {
-  for_each = var.organization_variables
+  for_each = var.terraform_organization_variables
 
   key             = each.key
   value           = each.value.hcl ? jsonencode(each.value.value) : tostring(each.value.value)

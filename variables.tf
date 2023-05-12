@@ -36,7 +36,7 @@ variable "organization_iam_deployer_aws_secret_access_key" {
   sensitive   = true
 }
 
-variable "organization_variables" {
+variable "terraform_organization_variables" {
   type = map(object({
     hcl         = bool
     sensitive   = bool
