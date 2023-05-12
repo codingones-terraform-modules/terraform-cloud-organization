@@ -48,19 +48,11 @@ resource "tfe_variable_set" "variables" {
   depends_on = [tfe_organization.organization]
 }
 
-resource "tfe_variable" "project" {
-  key             = "project"
-  value           = var.project
-  category        = "terraform"
-  description     = "The project name in the Project-Service-Layer architecture"
-  variable_set_id = tfe_variable_set.variables.id
-}
-
-resource "tfe_variable" "terraform_organization" {
-  key             = "terraform_organization"
+resource "tfe_variable" "tfe_team_token" {
+  key             = "tfe_team_token"
   value           = var.terraform_organization
   category        = "terraform"
-  description     = "The organization name on terraform cloud"
+  description     = "The organization team api token"
   variable_set_id = tfe_variable_set.variables.id
 }
 
