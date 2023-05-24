@@ -35,8 +35,7 @@ data "tfe_team" "owners" {
 }
 
 resource "tfe_team_token" "team_token" {
-  team_id          = data.tfe_team.owners.id
-  force_regenerate = true
+  team_id = data.tfe_team.owners.id
 }
 
 resource "tfe_variable_set" "variables" {
