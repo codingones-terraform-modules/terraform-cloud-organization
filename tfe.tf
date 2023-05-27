@@ -59,7 +59,7 @@ resource "tfe_variable" "organization_variables" {
   for_each = var.terraform_organization_variables
 
   key             = each.key
-  value           = each.value.hcl ? jsonencode(each.value.value) : tostring(each.value.value)
+  value           = each.value.value
   category        = "terraform"
   description     = each.value.description
   variable_set_id = tfe_variable_set.variables.id

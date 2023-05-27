@@ -40,7 +40,7 @@ variable "terraform_organization_variables" {
   type = map(object({
     hcl         = bool
     sensitive   = bool
-    value       = any
+    value       = string
     description = string
   }))
   default = {}
